@@ -4,9 +4,10 @@ import torch
 model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
 processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
 
-#labels = ["perishable", "stable"]
+image = Image.open("assets/images/date.webp")
+
 labels = [
-    "broccoli", "instant noodles", "potato", "carrot", "onion", "tomato", "cucumber", "spinach", "lettuce", "date",
+    "broccoli", "instant noodles", "potato", "carrot", "onion", "tomato", "cucumber", "spinach", "lettuce",
     "bell pepper", "cauliflower", "garlic", "ginger", "eggplant", "zucchini", "cabbage", "radish", 
     "mushroom", "peas", "asparagus", "okra", "celery", "beetroot", "fennel", "brussels sprouts",
     "artichoke", "turnip", "parsnip", "kale", "swiss chard", "bok choy", "leek", "scallion",
