@@ -16,6 +16,7 @@ def categorise_food(food_name):
     )
 
     return completion.choices[0].message.content
+
 FOOD_CATEGORIES = {
     "broccoli": "perishable", 
     "instant noodles": "stable", 
