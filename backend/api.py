@@ -10,16 +10,3 @@ def get_openai_client():
     return OpenAI(api_key=api_key)
 
 client = get_openai_client()
-
-#completion = client.chat.completions.create(
-#  model="gpt-4o",
-#  store=True,
-#  messages=[
-#    {
-#        "role": "user", 
-#        "content": "write a haiku about ai"
-#    }
-#  ]
-#)
-
-#print(completion.choices[0].message)
