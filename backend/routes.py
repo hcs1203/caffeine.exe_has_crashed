@@ -27,3 +27,6 @@ async def upload_image(file: UploadFile = File(...)):
         "category": food_category
     }
 
+
+
+
