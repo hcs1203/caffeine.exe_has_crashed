@@ -15,7 +15,7 @@ def categorize_food(food_name):
         ]
     )
 
-    return completion.choices[0].message
+    return completion.choices[0].message.content
 
 if __name__ == "__main__":
     food_ingredients = [
