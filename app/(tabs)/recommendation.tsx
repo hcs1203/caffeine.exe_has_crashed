@@ -1,12 +1,12 @@
 import { View, Text } from "react-native";
 import React from "react";
 
-const app = () => {
+const recommendation = () => {
     return (
         <View>
-            <Text>Kitchen Copilot</Text>
+            <Text>recommendation</Text>
         </View>
     );
 };
 
-export default app;
+export default recommendation;
