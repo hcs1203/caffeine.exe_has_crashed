@@ -1,14 +1,9 @@
 from api import client
 import heapq
-import os
-from supabase import create_client, Client
-from dotenv import load_dotenv
+from supabase_connection import SupabaseSingleton  # Import the Singleton
 
-load_dotenv()
-
-url: str = os.environ.get("SUPABASE_URL")
-key: str = os.environ.get("SUPABASE_API_KEY")
-supabase: Client = create_client(url, key)
+# Get the Supabase client from the Singleton
+supabase = SupabaseSingleton.get_instance()
 
 '''
 def categorise_food(food_name):
@@ -33,6 +28,7 @@ def get_current_user():
     if user and user.user:
         return user.user.id
     return None
+
 def get_user_preferences(user_id):
     if not user_id:
         return "Error: No authenticated user found"
