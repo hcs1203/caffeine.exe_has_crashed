@@ -71,28 +71,28 @@ def image_to_food(image):
     return predicted_class
 
 
-import os
-from PIL import Image
-import torch
-from transformers import CLIPProcessor, CLIPModel
+# import os
+# from PIL import Image
+# import torch
+# from transformers import CLIPProcessor, CLIPModel
 
-# Load the model and processor
-model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
-processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
+# # Load the model and processor
+# model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
+# processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
 
-labels = [  # List of food labels here
-    "broccoli", "instant noodles", "potato", "carrot", "onion", "tomato", "cucumber", "spinach", "lettuce",
-    "bell pepper", "cauliflower", "garlic", "ginger", "eggplant", "zucchini", "cabbage", "radish", 
-    # Add the rest of the labels...
-]
+# labels = [  # List of food labels here
+#     "broccoli", "instant noodles", "potato", "carrot", "onion", "tomato", "cucumber", "spinach", "lettuce",
+#     "bell pepper", "cauliflower", "garlic", "ginger", "eggplant", "zucchini", "cabbage", "radish", 
+#     # Add the rest of the labels...
+# ]
 
-def image_to_food(image):
-    """Function to predict food from an image."""
-    inputs = processor(text=labels, images=image, return_tensors="pt", padding=True)
-    outputs = model(**inputs)
-    logits_per_image = outputs.logits_per_image
-    probs = logits_per_image.softmax(dim=1)
+# def image_to_food(image):
+#     """Function to predict food from an image."""
+#     inputs = processor(text=labels, images=image, return_tensors="pt", padding=True)
+#     outputs = model(**inputs)
+#     logits_per_image = outputs.logits_per_image
+#     probs = logits_per_image.softmax(dim=1)
 
-    predicted_class = labels[probs.argmax()]
-    # print(f"Predicted class: {predicted_class}")
-    return predicted_class
+#     predicted_class = labels[probs.argmax()]
+#     # print(f"Predicted class: {predicted_class}")
+#     return predicted_class
