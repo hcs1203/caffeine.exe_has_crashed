@@ -1,12 +1,13 @@
-from imagescan import image_to_food
-from categorise_food import categorise_food
-from PIL import Image
+from fastapi import FastAPI
+from routes import router  # Import routes
 
-image = Image.open("assets/images/maggi.jpg")
-# This is the main app
-def main():
-    predicted_class = image_to_food(image)
-    food_category = categorise_food(predicted_class)
-    print(f"The food {predicted_class} is categorised as {food_category}")
+app = FastAPI()
 
-__main__ = main()
+# Include the routes from routes.py
+app.include_router(router)
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="127.0.0.1", port=8000)
+
+
