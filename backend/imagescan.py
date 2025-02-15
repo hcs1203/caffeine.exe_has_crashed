@@ -6,18 +6,18 @@ model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
 processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
 
 
-image = Image.open("/Users/riyamehta_2211/Desktop/caffeine.exe_has_crashed/assets/images/maggi.jpg")
+image = Image.open("assets/images/date.webp")
 
 #labels = ["perishable", "stable"]
 labels = [
-    "broccoli", "instant noodles", "potato", "carrot", "onion", "tomato", "cucumber", "spinach", "lettuce", 
+    "broccoli", "instant noodles", "potato", "carrot", "onion", "tomato", "cucumber", "spinach", "lettuce", "date",
     "bell pepper", "cauliflower", "garlic", "ginger", "eggplant", "zucchini", "cabbage", "radish", 
     "mushroom", "peas", "asparagus", "okra", "celery", "beetroot", "fennel", "brussels sprouts",
     "artichoke", "turnip", "parsnip", "kale", "swiss chard", "bok choy", "leek", "scallion",
     "apple", "banana", "orange", "mango", "pineapple", "strawberry", "blueberry", "raspberry", 
     "blackberry", "cranberry", "avocado", "watermelon", "grape", "papaya", "cherry", "pear", 
-    "peach", "pomegranate", "kiwi", "lemon", "lime", "plum", "fig", "apricot", "coconut",
-    "date", "lychee", "guava", "dragon fruit", "persimmon", "mulberry", "starfruit",
+    "peach", "pomegranate", "kiwi", "lemon", "lime", "plum", "fig", "apricot", "coconut", 
+    "lychee", "guava", "dragon fruit", "persimmon", "mulberry", "starfruit",
     "rice", "wheat", "oats", "quinoa", "barley", "corn", "millet", "rye", "buckwheat",
     "sorghum", "amaranth", "couscous", "farro", "bulgur", "wild rice", "teff",
     "lentils", "chickpeas", "kidney beans", "black beans", "green gram", "soybeans", 
@@ -51,7 +51,7 @@ labels = [
     "seaweed", "nori", "wakame", "kelp", "dulse", "spirulina", "chlorella",
     "caviar", "anchovies", "sardines", "eel", "tilapia", "haddock", "halibut", "trout", "cod",
     "miso paste", "kimchi", "sauerkraut", "pickles", "fermented black beans",
-    "chili flakes", "coconut flakes", "dried fruits", "raisins", "dates", "prunes",
+    "chili flakes", "coconut flakes", "dried fruits", "raisins", "prunes",
     "cranberries", "goji berries", "apricots",
     "tamarind", "yuzu", "lotus root", "edamame", "wasabi peas",
     "plantain", "cassava", "taro", "yam", "sweet potato", "jicama",
