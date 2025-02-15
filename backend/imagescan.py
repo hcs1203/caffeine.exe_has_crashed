@@ -3,20 +3,28 @@ from transformers import CLIPProcessor, CLIPModel
 import torch
 model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
 processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
+import supabase
 
+<<<<<<< Updated upstream
 image = Image.open("assets/images/date.webp")
 
+=======
+image = Image.open("assets/images/broccoli.jpeg")
+#response = supabase.table("ingredients").select("name").execute()
+#print(response)
+#select distinct name from ingredients
+>>>>>>> Stashed changes
 labels = [
-    "broccoli", "instant noodles", "potato", "carrot", "onion", "tomato", "cucumber", "spinach", "lettuce",
-    "bell pepper", "cauliflower", "garlic", "ginger", "eggplant", "zucchini", "cabbage", "radish", 
-    "mushroom", "peas", "asparagus", "okra", "celery", "beetroot", "fennel", "brussels sprouts",
-    "artichoke", "turnip", "parsnip", "kale", "swiss chard", "bok choy", "leek", "scallion",
-    "apple", "banana", "orange", "mango", "pineapple", "strawberry", "blueberry", "raspberry", 
-    "blackberry", "cranberry", "avocado", "watermelon", "grape", "papaya", "cherry", "pear", 
-    "peach", "pomegranate", "kiwi", "lemon", "lime", "plum", "fig", "apricot", "coconut", 
-    "lychee", "guava", "dragon fruit", "persimmon", "mulberry", "starfruit",
-    "rice", "wheat", "oats", "quinoa", "barley", "corn", "millet", "rye", "buckwheat",
-    "sorghum", "amaranth", "couscous", "farro", "bulgur", "wild rice", "teff",
+     "broccoli", "instant noodles", "potato", "carrot", "onion", "tomato", "cucumber", "spinach", "lettuce",
+     "bell pepper", "cauliflower", "garlic", "ginger", "eggplant", "zucchini", "cabbage", "radish", 
+     "mushroom", "peas", "asparagus", "okra", "celery", "beetroot", "fennel", "brussels sprouts",
+     "artichoke", "turnip", "parsnip", "kale", "swiss chard", "bok choy", "leek", "scallion",
+     "apple", "banana", "orange", "mango", "pineapple", "strawberry", "blueberry", "raspberry", 
+     "blackberry", "cranberry", "avocado", "watermelon", "grape", "papaya", "cherry", "pear", 
+     "peach", "pomegranate", "kiwi", "lemon", "lime", "plum", "fig", "apricot", "coconut", 
+     "lychee", "guava", "dragon fruit", "persimmon", "mulberry", "starfruit",
+     "rice", "wheat", "oats", "quinoa", "barley", "corn", "millet", "rye", "buckwheat",
+     "sorghum", "amaranth", "couscous", "farro", "bulgur", "wild rice", "teff",
     "lentils", "chickpeas", "kidney beans", "black beans", "green gram", "soybeans", 
     "pinto beans", "white beans", "navy beans", "adzuki beans", "mung beans",
     "chicken", "beef", "pork", "fish", "salmon", "tuna", "shrimp", "lobster", "crab",
