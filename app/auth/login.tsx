@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
-import { signIn } from "./authHelpers"; // ✅ Import signIn function
-import { RootStackParamList, StackNavigationProps } from "../navigation/types";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { useNavigation } from "@react-navigation/native";
+import { signIn } from "./authHelpers";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { RootStackParamList } from "../navigation/types";
 
-type Props = NativeStackScreenProps<RootStackParamList, "Login">;
+type Props = StackNavigationProp<RootStackParamList, "Login">;
 
-const LoginScreen = ({ navigation }: Props) => {
+const LoginScreen = () => {
+    const navigation = useNavigation<Props>();
+
     const [email, setEmail] = useState("");
+
     const [password, setPassword] = useState("");
 
     async function handleLogin() {
