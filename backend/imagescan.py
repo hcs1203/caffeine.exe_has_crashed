@@ -5,15 +5,8 @@ model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
 processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
 import supabase
 
-<<<<<<< Updated upstream
 image = Image.open("assets/images/date.webp")
 
-=======
-image = Image.open("assets/images/broccoli.jpeg")
-#response = supabase.table("ingredients").select("name").execute()
-#print(response)
-#select distinct name from ingredients
->>>>>>> Stashed changes
 labels = [
      "broccoli", "instant noodles", "potato", "carrot", "onion", "tomato", "cucumber", "spinach", "lettuce",
      "bell pepper", "cauliflower", "garlic", "ginger", "eggplant", "zucchini", "cabbage", "radish", 
