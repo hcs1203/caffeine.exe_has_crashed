@@ -1,12 +1,8 @@
 import torch
 from transformers import CLIPProcessor, CLIPModel
-from PIL import Image
 import torch
 model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
 processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
-
-
-image = Image.open("assets/images/date.webp")
 
 #labels = ["perishable", "stable"]
 labels = [
@@ -64,11 +60,12 @@ labels = [
     "cashews", "almonds", "walnuts", "pecans", "hazelnuts", "macadamia nuts", "brazil nuts", "pistachios",
     "cottage cheese", "creme fraiche", "mascarpone", "gorgonzola", "brie", "camembert"
 ]
+def image_to_food(image):
+    inputs = processor(text=labels, images=image, return_tensors="pt", padding=True)
+    outputs = model(**inputs)
+    logits_per_image = outputs.logits_per_image
+    probs = logits_per_image.softmax(dim=1)
 
-inputs = processor(text=labels, images=image, return_tensors="pt", padding=True)
-outputs = model(**inputs)
-logits_per_image = outputs.logits_per_image
-probs = logits_per_image.softmax(dim=1)
-
-predicted_class = labels[probs.argmax()]
-print(f"Predicted class: {predicted_class}")
+    predicted_class = labels[probs.argmax()]
+    #print(f"Predicted class: {predicted_class}")
+    return predicted_class

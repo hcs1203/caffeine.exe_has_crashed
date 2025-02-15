@@ -1,6 +1,6 @@
 from api import client
 
-def categorize_food(food_name):
+def categorise_food(food_name):
     # use openai gpt models to categorise food
     prompt = f"There are 2 categories of food, perishable and stable, please categorise the food {food_name} accordingly according to its natural and storage properties. Return only the category of the food."
 
