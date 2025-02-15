@@ -25,7 +25,12 @@ const LoginScreen = () => {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Log In</Text>
-            <TextInput placeholder="Email" value={email} onChangeText={setEmail} style={styles.input} />
+            <TextInput
+                placeholder="Email"
+                value={email}
+                onChangeText={(text) => setEmail(text.toLowerCase())}
+                style={styles.input}
+            />
             <TextInput
                 placeholder="Password"
                 value={password}

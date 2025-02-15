@@ -1,4 +1,4 @@
-import { supabase } from "../supabaseClient";
+import supabase from "../supabaseClient";
 
 // ✅ Sign Up User
 export async function signUp(email: string, password: string, username: string) {

@@ -45,7 +45,7 @@ const SignupScreen = ({ navigation }: Props) => {
                         placeholder="Email"
                         placeholderTextColor="#888"
                         value={email}
-                        onChangeText={setEmail}
+                        onChangeText={(text) => setEmail(text.toLowerCase())}
                         style={styles.input}
                     />
                     <TextInput
