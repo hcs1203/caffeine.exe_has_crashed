@@ -13,23 +13,26 @@ image = Image.open("/Users/riyamehta_2211/Desktop/caffeine.exe_has_crashed/asset
 
 # Step 5: Define Class Labels (Text descriptions)
 #labels = ["perishable", "stable"]
-labels = [
-    "broccoli", "maggi", "potato", "carrot", "onion", "tomato", "cucumber", "spinach", "lettuce", 
-    "bell pepper", "cauliflower", "garlic", "ginger", "eggplant", "zucchini", "cabbage", "radish", 
-    "mushroom", "peas", "asparagus", "apple", "banana", "orange", "mango", "pineapple", "strawberry", 
-    "blueberry", "raspberry", "avocado", "watermelon", "grape", "papaya", "cherry", "pear", "peach", 
-    "pomegranate", "kiwi", "lemon", "lime", "rice", "wheat", "oats", "quinoa", "barley", "corn", 
-    "lentils", "chickpeas", "kidney beans", "black beans", "green gram", "soybeans", "chicken", "beef", 
-    "pork", "fish", "salmon", "tuna", "shrimp", "egg", "milk", "cheese", "yogurt", "butter", "tofu", 
-    "tempeh", "paneer", "salt", "pepper", "turmeric", "cumin", "coriander", "cardamom", "cinnamon", 
-    "cloves", "nutmeg", "mustard seeds", "bay leaf", "basil", "oregano", "thyme", "rosemary", 
-    "paprika", "chili powder", "olive oil", "vegetable oil", "butter", "vinegar", "soy sauce", 
-    "ketchup", "mayonnaise", "mustard", "honey", "sugar", "bread", "pasta", "noodles", "cereal", 
-    "chips", "chocolate", "biscuits", "cake", "ice cream"
+food_ingredients = [
+    "Milk", "Cheese", "Yogurt", "Butter", "Cream", "Sour Cream", "Eggs", "Ice Cream",
+    "Apple", "Banana", "Orange", "Strawberry", "Blueberry", "Pineapple", "Mango", "Grapes", "Watermelon",
+    "Tomato", "Carrot", "Spinach", "Lettuce", "Broccoli", "Garlic", "Onion", "Bell Pepper", "Potato",
+    "Chicken", "Beef", "Pork", "Lamb", "Turkey", "Duck", "Fish", "Salmon", "Tuna", "Shrimp", "Crab", "Lobster",
+    "Rice", "Wheat Flour", "Oats", "Pasta", "Quinoa", "Barley", "Cornmeal", "Bread", "Tortilla",
+    "Lentils", "Chickpeas", "Black Beans", "Kidney Beans", "Peas", "Soybeans", "Tofu",
+    "Almonds", "Peanuts", "Cashews", "Walnuts", "Hazelnuts", "Chia Seeds", "Flaxseeds", "Sunflower Seeds",
+    "Olive Oil", "Vegetable Oil", "Coconut Oil", "Butter", "Ghee",
+    "White Sugar", "Brown Sugar", "Honey", "Maple Syrup", "Molasses",
+    "Baking Powder", "Baking Soda", "Yeast", "Cornstarch", "Cocoa Powder", "Vanilla Extract",
+    "Canned Beans", "Canned Tomatoes", "Pickles", "Peanut Butter", "Jam", "Coconut Milk",
+    "Ketchup", "Mustard", "Soy Sauce", "Vinegar", "Mayonnaise", "Salad Dressing", "Hot Sauce",
+    "Frozen Peas", "Frozen Chicken", "Frozen Pizza", "Frozen Shrimp", "Frozen Berries",
+    "Juice", "Coffee", "Tea", "Soda", "Wine", "Beer",
+    "Salt", "Pepper", "Cinnamon", "Basil", "Oregano", "Cumin", "Nutmeg", "Turmeric",
+    "Instant Noodles", "Granola", "Cereal", "Pasta Sauce", "Energy Bar"
 ]
-
 # Step 6: Preprocess the Inputs
-inputs = processor(text=labels, images=image, return_tensors="pt", padding=True)
+inputs = processor(text=food_ingredients, images=image, return_tensors="pt", padding=True)
 
 # Step 7: Perform Zero-Shot Classification
 outputs = model(**inputs)
@@ -37,7 +40,7 @@ logits_per_image = outputs.logits_per_image  # Similarity score
 probs = logits_per_image.softmax(dim=1)      # Probability distribution
 
 # Step 8: Get the Predicted Class
-predicted_class = labels[probs.argmax()]
+predicted_class = food_ingredients[probs.argmax()]
 print(f"Predicted class: {predicted_class}")
 
 
