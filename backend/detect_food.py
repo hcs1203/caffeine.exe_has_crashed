@@ -1,19 +1,21 @@
 import torch
+import os
+from PIL import Image
 from transformers import CLIPProcessor, CLIPModel
 model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
 processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
 
 labels = [
-     "broccoli", "instant noodles", "potato", "carrot", "onion", "tomato", "cucumber", "spinach", "lettuce",
-     "bell pepper", "cauliflower", "garlic", "ginger", "eggplant", "zucchini", "cabbage", "radish", 
-     "mushroom", "peas", "asparagus", "okra", "celery", "beetroot", "fennel", "brussels sprouts",
-     "artichoke", "turnip", "parsnip", "kale", "swiss chard", "bok choy", "leek", "scallion",
-     "apple", "banana", "orange", "mango", "pineapple", "strawberry", "blueberry", "raspberry", 
-     "blackberry", "cranberry", "avocado", "watermelon", "grape", "papaya", "cherry", "pear", 
-     "peach", "pomegranate", "kiwi", "lemon", "lime", "plum", "fig", "apricot", "coconut", 
-     "lychee", "guava", "dragon fruit", "persimmon", "mulberry", "starfruit",
-     "rice", "wheat", "oats", "quinoa", "barley", "corn", "millet", "rye", "buckwheat",
-     "sorghum", "amaranth", "couscous", "farro", "bulgur", "wild rice", "teff",
+    "broccoli", "instant noodles", "potato", "carrot", "onion", "tomato", "cucumber", "spinach", "lettuce",
+    "bell pepper", "cauliflower", "garlic", "ginger", "eggplant", "zucchini", "cabbage", "radish", 
+    "mushroom", "peas", "asparagus", "okra", "celery", "beetroot", "fennel", "brussels sprouts",
+    "artichoke", "turnip", "parsnip", "kale", "swiss chard", "bok choy", "leek", "scallion",
+    "apple", "banana", "orange", "mango", "pineapple", "strawberry", "blueberry", "raspberry", 
+    "blackberry", "cranberry", "avocado", "watermelon", "grape", "papaya", "cherry", "pear", 
+    "peach", "pomegranate", "kiwi", "lemon", "lime", "plum", "fig", "apricot", "coconut", 
+    "lychee", "guava", "dragon fruit", "persimmon", "mulberry", "starfruit",
+    "rice", "wheat", "oats", "quinoa", "barley", "corn", "millet", "rye", "buckwheat",
+    "sorghum", "amaranth", "couscous", "farro", "bulgur", "wild rice", "teff",
     "lentils", "chickpeas", "kidney beans", "black beans", "green gram", "soybeans", 
     "pinto beans", "white beans", "navy beans", "adzuki beans", "mung beans",
     "chicken", "beef", "pork", "fish", "salmon", "tuna", "shrimp", "lobster", "crab",
@@ -65,5 +67,32 @@ def image_to_food(image):
     probs = logits_per_image.softmax(dim=1)
 
     predicted_class = labels[probs.argmax()]
-    #print(f"Predicted class: {predicted_class}")
+    print(f"Predicted class: {predicted_class}")
     return predicted_class
+
+
+# import os
+# from PIL import Image
+# import torch
+# from transformers import CLIPProcessor, CLIPModel
+
+# # Load the model and processor
+# model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
+# processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
+
+# labels = [  # List of food labels here
+#     "broccoli", "instant noodles", "potato", "carrot", "onion", "tomato", "cucumber", "spinach", "lettuce",
+#     "bell pepper", "cauliflower", "garlic", "ginger", "eggplant", "zucchini", "cabbage", "radish", 
+#     # Add the rest of the labels...
+# ]
+
+# def image_to_food(image):
+#     """Function to predict food from an image."""
+#     inputs = processor(text=labels, images=image, return_tensors="pt", padding=True)
+#     outputs = model(**inputs)
+#     logits_per_image = outputs.logits_per_image
+#     probs = logits_per_image.softmax(dim=1)
+
+#     predicted_class = labels[probs.argmax()]
+#     # print(f"Predicted class: {predicted_class}")
+#     return predicted_class
