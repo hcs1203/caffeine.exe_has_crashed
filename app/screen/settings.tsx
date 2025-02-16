@@ -1,6 +1,7 @@
 import { View, Text, CheckBox, Button } from "react-native";
 import React, { useEffect, useState } from "react";
-import supabase from "../supabaseClient"; 
+import { useNavigation } from "@react-navigation/native"; 
+import supabase from "../supabaseClient";
 
 const SettingsScreen = () => {
     const [user, setUser] = useState(null);
@@ -13,6 +14,8 @@ const SettingsScreen = () => {
         dairyFree: false,
         pescatarian: false,
     });
+
+    const navigation = useNavigation(); // Get the navigation prop
 
     // Fetch current user on component mount
     useEffect(() => {
@@ -123,6 +126,12 @@ const SettingsScreen = () => {
 
             {/* Save Button */}
             <Button title="Save Preferences" onPress={saveDietaryPreferences} />
+
+            {/* Button to navigate to History */}
+            <Button
+                title="View History"
+                onPress={() => navigation.navigate("History")}
+            />
         </View>
     );
 };

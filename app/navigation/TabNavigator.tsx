@@ -34,14 +34,6 @@ export const BottomTabNavigator = () => {
                 }}
             />
             <Tab.Screen
-                name="History"
-                component={HistoryScreen}
-                options={{
-                    title: "History",
-                    tabBarIcon: ({ color, size }) => <MaterialIcons name="history" size={size} color={color} />,
-                }}
-            />
-            <Tab.Screen
                 name="Settings"
                 component={SettingsScreen}
                 options={{
