@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import CameraScreen from "../screen/camera";
 import RecommendationScreen from "../screen/recommendation";
 import HistoryScreen from "../screen/history";
+import SettingsScreen from "../screen/settings";
 import { MaterialIcons } from "@expo/vector-icons";
 
 export type TabParamList = {
@@ -38,6 +39,14 @@ export const BottomTabNavigator = () => {
                 options={{
                     title: "History",
                     tabBarIcon: ({ color, size }) => <MaterialIcons name="history" size={size} color={color} />,
+                }}
+            />
+            <Tab.Screen
+                name="Settings"
+                component={SettingsScreen}
+                options={{
+                    title: "Settings",
+                    tabBarIcon: ({ color, size }) => <MaterialIcons name="settings" size={size} color={color} />,
                 }}
             />
         </Tab.Navigator>
