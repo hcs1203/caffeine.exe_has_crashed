@@ -8,7 +8,10 @@ import {
     ScrollView,
     Platform,
     TouchableOpacity,
+    Image,
+
     ActivityIndicator,
+
 } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import  supabase  from "../supabaseClient"; 
@@ -57,9 +60,12 @@ const SignupScreen = ({ navigation }: Props) => {
     }
 
     return (
-        <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.container}>
-            <ScrollView contentContainerStyle={styles.scrollContainer}>
-                <View style={styles.innerContainer}>
+
+        <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{ flex: 1 }}>
+            <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+                <View style={styles.container}>
+                    <Image source={require("../../assets/images/LOGO.png")} style={{ width: 100, height: 100 }} />
+
                     <Text style={styles.title}>Sign Up</Text>
 
                     <TextInput

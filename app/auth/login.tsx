@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { signIn } from "./authHelpers";
 import { StackNavigationProp } from "@react-navigation/stack";
@@ -24,6 +24,7 @@ const LoginScreen = () => {
 
     return (
         <View style={styles.container}>
+            <Image source={require("../../assets/images/LOGO.png")} style={{ width: 100, height: 100 }} />
             <Text style={styles.title}>Log In</Text>
             <TextInput
                 placeholder="Email"
