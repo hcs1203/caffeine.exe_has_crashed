@@ -8,6 +8,7 @@ import {
     ScrollView,
     Platform,
     TouchableOpacity,
+    Image,
 } from "react-native";
 import { signUp } from "./authHelpers";
 import { RootStackParamList, StackNavigationProps } from "../navigation/types";
@@ -32,6 +33,7 @@ const SignupScreen = ({ navigation }: Props) => {
         <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{ flex: 1 }}>
             <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
                 <View style={styles.container}>
+                    <Image source={require("../../assets/images/LOGO.png")} style={{ width: 100, height: 100 }} />
                     <Text style={styles.title}>Sign Up</Text>
 
                     <TextInput
