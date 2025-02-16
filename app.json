@@ -1,57 +1,63 @@
 {
-    "expo": {
-        "name": "kitchenCopilot",
-        "slug": "kitchenCopilot",
-        "version": "1.0.0",
-        "orientation": "portrait",
-        "icon": "./assets/images/icon.png",
-        "scheme": "myapp",
-        "userInterfaceStyle": "automatic",
-        "newArchEnabled": true,
-        "ios": {
-            "supportsTablet": true,
-            "bundleIdentifier": "com.davidfoo007.kitchenCopilot"
-        },
-        "android": {
-            "adaptiveIcon": {
-                "foregroundImage": "./assets/images/adaptive-icon.png",
-                "backgroundColor": "#ffffff"
-            },
-            "permissions": ["android.permission.CAMERA", "android.permission.RECORD_AUDIO"]
-        },
-        "web": {
-            "bundler": "metro",
-            "output": "static",
-            "favicon": "./assets/images/favicon.png"
-        },
-        "plugins": [
-            "expo-router",
-            [
-                "expo-splash-screen",
-                {
-                    "image": "./assets/images/splash-icon.png",
-                    "imageWidth": 200,
-                    "resizeMode": "contain",
-                    "backgroundColor": "#ffffff"
-                }
-            ],
-            [
-                "expo-camera",
-                {
-                    "cameraPermission": "Allow Kitchen Copilot to access your camera",
-                    "microphonePermission": "Allow Kitchen Copilot to access your microphone",
-                    "recordAudioAndroid": true
-                }
-            ],
-            [
-                "expo-image-picker",
-                {
-                    "photosPermission": "The app accesses your photos to let you share them with your friends."
-                }
-            ]
-        ],
-        "experiments": {
-            "typedRoutes": true
+  "expo": {
+    "name": "kitchenCopilot",
+    "slug": "kitchenCopilot",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "myapp",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.davidfoo007.kitchenCopilot"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.davidfoo007.kitchenCopilot"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
         }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow Kitchen Copilot to access your camera",
+          "microphonePermission": "Allow Kitchen Copilot to access your microphone",
+          "recordAudioAndroid": true
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app accesses your photos to let you share them with your friends."
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
     }
+  }
 }
