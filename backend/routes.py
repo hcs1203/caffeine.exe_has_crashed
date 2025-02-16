@@ -82,7 +82,9 @@ from prioritize_food import prioritize_food  # Function to prioritize food
 from generate_menu import generate_menus # Function to generate menus
 from constant import FOOD_CATEGORIES  # Dictionary of food categories
 from supabase_connection import SupabaseSingleton  # Supabase functions
-
+import re
+# Get the Supabase client from the Singleton
+supabase = SupabaseSingleton.get_instance()
 # Get the directory of the current script
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -150,6 +152,21 @@ if os.path.exists(image_path):
     # Generate menu
     generate_menu = generate_menus(prioritized_food)
     print(f"Generated Menu: {generate_menu}")
+    # Separate Recipe and insert into recipe table
+    # Splitting based on the pattern "#. Dish Name:"
+    recipes_str = ""
+    for i in range(len(generate_menu)):
+        recipes_str += generate_menu[i]
+    dishes = re.split(r'(?=\d+\. Dish Name:)', recipes_str.strip())
+    dishes = [dish.strip() for dish in dishes if dish]
+    for i, dish in enumerate(dishes, 1):
+        print(f"Dish {i}:\n{dish}\n{'-'*40}")
+    SupabaseSingleton.insert_recipe_recommendation(dishes)
+    #if response.data:
+        #return response.data["preferences"]
+    #return "No preferences found for this user"
+    
+
 
 else:
     print(f"Image not found: {image_path}")

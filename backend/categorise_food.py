@@ -1,5 +1,4 @@
 from api import client
-import heapq
 from supabase_connection import SupabaseSingleton  # Import the Singleton
 
 # Get the Supabase client from the Singleton
